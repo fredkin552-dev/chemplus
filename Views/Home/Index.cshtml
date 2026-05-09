@@ -1,0 +1,109 @@
+﻿@model List<WebApplication1.Models.Product>
+@{
+    ViewData["Title"] = "ChemPlus";
+}
+
+<div class="hero-section bg-light py-5 mb-5">
+    <div class="container text-center">
+        <h1 class="display-3 mb-3">Welcome to ChemPlus</h1>
+        <p class="lead mb-4">Your source for detergents, cleaning supplies, and laundry essentials.</p>
+        <a href="@Url.Action("Index", "Products")" class="btn btn-primary btn-lg">Shop Now</a>
+        
+        <!-- NEW: Demonstration Button -->
+        <hr class="my-4" />
+        <h5>API Demonstration</h5>
+        <button id="loadProductsBtn" class="btn btn-warning">Fetch Products from Backend (API)</button>
+        <div id="apiResult" class="mt-3 text-start bg-dark text-light p-3 rounded d-none" style="max-height: 200px; overflow-y: auto;"></div>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <h3 class="text-center mb-4">Recently Added Products</h3>
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text text-muted">@product.Category</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="h5 mb-0 text-success">@product.Price.ToString("C")</span>
+                            <a href="@Url.Action("Details", "Products", new { id = product.Id })" class="btn btn-sm btn-outline-primary">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="text-center">
+        <a href="@Url.Action("Index", "Products")" class="btn btn-outline-secondary">View All Products</a>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="p-4 border rounded bg-white h-100">
+                <h5>Detergents</h5>
+                <p>Powerful liquid and powder detergents for every laundry load.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="p-4 border rounded bg-white h-100">
+                <h5>Cleaning</h5>
+                <p>Surface cleaners and dish soaps for a sparkling home.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="p-4 border rounded bg-white h-100">
+                <h5>Laundry Products</h5>
+                <p>Fabric softeners and laundry boosters for fresh, soft clothes.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="text-center">
+                <h5>✓ Great Quality</h5>
+                <p>Premium products you can trust</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="text-center">
+                <h5>✓ Best Prices</h5>
+                <p>Competitive pricing on all items</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('loadProductsBtn').addEventListener('click', async function() {
+            const resultDiv = document.getElementById('apiResult');
+            resultDiv.classList.remove('d-none');
+            resultDiv.innerHTML = "<em>Loading from backend...</em>";
+
+            try {
+                // This is where the FRONTEND (Browser) calls the BACKEND (C# Controller)
+                const response = await fetch('/api/products');
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                const data = await response.json();
+                
+                // Display the raw JSON data retrieved from C#
+                resultDiv.innerHTML = "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+            } catch (error) {
+                resultDiv.innerHTML = "<span class='text-danger'>Error: " + error.message + "</span>";
+            }
+        });
+    </script>
+}

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChemPlus - Product Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994963155410287"
+     crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --brand: #1a73e8;
+            --brand-dark: #174ea6;
+            --surface: #f8fbff;
+            --text-primary: #101828;
+            --text-secondary: #5f6d7a;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: var(--text-primary);
+        }
+
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar.sticky-top {
+            background: rgba(15, 23, 42, 0.94);
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(26, 115, 232, 0.95) 0%, rgba(25, 44, 120, 0.95) 100%), url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            color: white;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 25, 47, 0.52);
+        }
+
+        .hero-section .container,
+        .hero-section .row {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-card {
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.18);
+        }
+
+        .badge-soft {
+            background: rgba(255,255,255,0.16);
+        }
+
+        .product-card {
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            background: white;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 80px rgba(15, 23, 42, 0.12);
+        }
+
+        .product-image {
+            height: 320px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .price {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--brand);
+        }
+
+        .product-label {
+            background: rgba(26, 115, 232, 0.08);
+            color: var(--brand);
+            font-weight: 600;
+        }
+
+        .feature-card {
+            border-radius: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 28px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        .testimonial-card {
+            border-radius: 1.5rem;
+            border: none;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+        }
+
+        .section-title {
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: var(--brand);
+            font-weight: 700;
+        }
+
+        @media (max-width: 991px) {
+            .product-image {
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="bi bi-shop"></i> ChemPlus
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item d-none d-lg-block"><a class="btn btn-outline-light btn-sm" href="#contact">Get Support</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6">
+                    <span class="badge badge-soft rounded-pill px-4 py-2 mb-3">Wholesale Cleaning & Laundry</span>
+                    <h1 class="display-4 fw-bold">Your wholesale partner for cleaning essentials.</h1>
+                    <p class="lead text-white-75 mb-4">ChemPlus supplies trusted cleaning and laundry brands in bulk for businesses, retailers, and distributors.</p>
+                    <div class="d-flex flex-column flex-sm-row gap-3">
+                        <a href="#products" class="btn btn-warning btn-lg">Shop Products</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="hero-card p-3">
+                        <img src="images/laundry-detergent.jpg" class="img-fluid rounded-4" alt="ChemPlus hero image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="feature-card p-4 h-100 bg-light">
+                        <i class="bi bi-droplet-half text-primary display-4"></i>
+                        <h5 class="mt-3">Fresh Formulas</h5>
+                        <p class="text-secondary">Advanced detergents and cleaners for every household need.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card p-4 h-100 bg-light">
+                        <i class="bi bi-speedometer2 text-success display-4"></i>
+                        <h5 class="mt-3">Fast Results</h5>
+                        <p class="text-secondary">Effective cleaning power without harsh chemicals or residue.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card p-4 h-100 bg-light">
+                        <i class="bi bi-star text-warning display-4"></i>
+                        <h5 class="mt-3">Trusted Quality</h5>
+                        <p class="text-secondary">Highly rated products designed for reliable home performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google AdSense Placeholder -->
+    <div class="container text-center my-4">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3994963155410287"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <section id="products" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-end mb-4 gy-3">
+                <div class="col-lg-6">
+                    <p class="section-title mb-2">Wholesale products</p>
+                    <h2 class="display-5">Browse our bulk cleaning and laundry catalog</h2>
+                    <p class="text-secondary">Filter and search products to find the perfect items for your store, laundry service, or facility.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group input-group-lg shadow-sm rounded-4 overflow-hidden">
+                        <span class="input-group-text bg-white border-0"><i class="bi bi-search"></i></span>
+                        <input id="searchInput" type="search" class="form-control border-0" placeholder="Search products...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mb-4">
+                <button type="button" class="btn btn-outline-primary active filter-btn" data-category="All">All</button>
+                <button type="button" class="btn btn-outline-primary filter-btn" data-category="Detergent">Detergent</button>
+                <button type="button" class="btn btn-outline-primary filter-btn" data-category="Cleaning">Cleaning</button>
+                <button type="button" class="btn btn-outline-primary filter-btn" data-category="Laundry">Laundry</button>
+            </div>
+
+            <div class="row g-4" id="productGrid">
+                <div class="col-lg-4 col-md-6" data-category="Laundry" data-name="UltraClean Laundry Detergent" data-tags="laundry detergent" data-price="$14.99" data-stock="80" data-image="images/laundry-detergent.jpg" data-description="Concentrated detergent for bright, fresh laundry and powerful stain removal." data-rating="4.8">
+                    <div class="card product-card h-100">
+                        <div class="position-relative">
+                            <img src="images/laundry-detergent.jpg" class="product-image" alt="UltraClean Laundry Detergent">
+                            <span class="badge product-label position-absolute top-0 start-0 m-3">Popular</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">UltraClean Laundry Detergent</h5>
+                            <p class="text-secondary small mb-3">Laundry</p>
+                            <p class="card-text text-secondary">Concentrated detergent for bright, fresh laundry and powerful stain removal.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price">$14.99</span>
+                                <span class="badge bg-light text-primary border">4.8 ★</span>
+                            </div>
+                            <button class="btn btn-primary w-100 view-details-btn" data-bs-toggle="modal" data-bs-target="#productModal">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-category="Laundry" data-name="Velveta Laundry Gel" data-tags="laundry gel" data-price="$5.99" data-stock="120" data-image="images/velveta-laundry-gel-1.jpg" data-description="Scented laundry gel for clean, fresh clothes." data-rating="4.5">
+                    <div class="card product-card h-100">
+                        <img src="images/velveta-laundry-gel-1.jpg" class="product-image" alt="Velveta Laundry Gel">
+                        <div class="card-body">
+                            <h5 class="card-title">Velveta Laundry Gel</h5>
+                            <p class="text-secondary small mb-3">Laundry</p>
+                            <p class="card-text text-secondary">Scented laundry gel for clean, fresh clothes.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price">$5.99</span>
+                                <span class="badge bg-light text-primary border">4.6 ★</span>
+                            </div>
+                            <button class="btn btn-primary w-100 view-details-btn" data-bs-toggle="modal" data-bs-target="#productModal">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-category="Laundry" data-name="Fresh Breeze Fabric Softener" data-tags="fabric softener" data-price="$7.49" data-stock="70" data-image="images/fabric-softener.jpg" data-description="Softens fabrics and leaves clothes smelling fresh after every wash." data-rating="4.7">
+                    <div class="card product-card h-100">
+                        <img src="images/fabric-softener.jpg" class="product-image" alt="Fresh Breeze Fabric Softener">
+                        <div class="card-body">
+                            <h5 class="card-title">Fresh Breeze Fabric Softener</h5>
+                            <p class="text-secondary small mb-3">Laundry</p>
+                            <p class="card-text text-secondary">Softens fabrics and leaves clothes smelling fresh after every wash.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price">$7.49</span>
+                                <span class="badge bg-light text-primary border">4.7 ★</span>
+                            </div>
+                            <button class="btn btn-primary w-100 view-details-btn" data-bs-toggle="modal" data-bs-target="#productModal">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-category="Laundry" data-name="Velveta Deep Clean Gel" data-tags="deep clean gel" data-price="$9.99" data-stock="90" data-image="images/surface-cleaner.jpg" data-description="Rich laundry gel for soft, vibrant fabric care." data-rating="4.4">
+                    <div class="card product-card h-100">
+                        <img src="images/surface-cleaner.jpg" class="product-image" alt="Velveta Deep Clean Gel">
+                        <div class="card-body">
+                            <h5 class="card-title">Velveta Deep Clean Gel</h5>
+                            <p class="text-secondary small mb-3">Laundry</p>
+                            <p class="card-text text-secondary">Rich laundry gel for soft, vibrant fabric care.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price">$9.99</span>
+                                <span class="badge bg-light text-primary border">4.5 ★</span>
+                            </div>
+                            <button class="btn btn-primary w-100 view-details-btn" data-bs-toggle="modal" data-bs-target="#productModal">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-category="Laundry" data-name="Velveta Color Care Laundry Gel" data-tags="color care" data-price="$18.99" data-stock="60" data-image="images/powder-detergent.jpg" data-description="Gentle color-care gel for bright, fade-resistant fabrics." data-rating="4.6">
+                    <div class="card product-card h-100">
+                        <img src="images/powder-detergent.jpg" class="product-image" alt="Velveta Color Care Laundry Gel">
+                        <div class="card-body">
+                            <h5 class="card-title">Velveta Color Care Laundry Gel</h5>
+                            <p class="text-secondary small mb-3">Laundry</p>
+                            <p class="card-text text-secondary">Gentle color-care gel for bright, fade-resistant fabrics.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price">$18.99</span>
+                                <span class="badge bg-light text-primary border">4.6 ★</span>
+                            </div>
+                            <button class="btn btn-primary w-100 view-details-btn" data-bs-toggle="modal" data-bs-target="#productModal">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-category="Cleaning" data-name="Clorel Cleaning Bleach" data-tags="bleach cleaner" data-price="$6.99" data-stock="50" data-image="images/glass-cleaner.jpg" data-description="Powerful bleach cleaner for disinfecting and removing tough stains." data-rating="4.3">
+                    <div class="card product-card h-100">
+                        <img src="images/glass-cleaner.jpg" class="product-image" alt="Clorel Cleaning Bleach">
+                        <div class="card-body">
+                            <h5 class="card-title">Clorel Cleaning Bleach</h5>
+                            <p class="text-secondary small mb-3">Cleaning</p>
+                            <p class="card-text text-secondary">Powerful bleach cleaner for disinfecting and removing tough stains.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price">$6.99</span>
+                                <span class="badge bg-light text-primary border">4.3 ★</span>
+                            </div>
+                            <button class="btn btn-primary w-100 view-details-btn" data-bs-toggle="modal" data-bs-target="#productModal">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg overflow-hidden">
+                <div class="modal-header border-0 p-4">
+                    <div>
+                        <h5 class="modal-title fs-3" id="productModalLabel"></h5>
+                        <p class="text-secondary mb-0" id="productModalCategory"></p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-6">
+                            <img id="productModalImage" src="" class="img-fluid rounded-4 shadow-sm" alt="Product image">
+                        </div>
+                        <div class="col-lg-6">
+                            <p class="text-secondary" id="productModalDescription"></p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><strong>Price:</strong> <span id="productModalPrice"></span></li>
+                                <li class="mb-2"><strong>Stock:</strong> <span id="productModalStock"></span></li>
+                                <li class="mb-2"><strong>Rating:</strong> <span id="productModalRating"></span></li>
+                            </ul>
+                            <button class="btn btn-warning btn-lg w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6">
+                    <p class="section-title mb-2">About ChemPlus</p>
+                    <h2 class="display-5 mb-4">Why customers love ChemPlus</h2>
+                    <p class="text-secondary mb-4">We supply wholesale cleaning and laundry products designed to help businesses, retailers, and service providers keep customers satisfied.</p>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="p-4 bg-light rounded-4 h-100">
+                                <h6><i class="bi bi-shield-check text-success me-2"></i>Safe & reliable</h6>
+                                <p class="mb-0 text-secondary">Quality ingredients backed by careful testing.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-4 bg-light rounded-4 h-100">
+                                <h6><i class="bi bi-clock-history text-primary me-2"></i>Fast delivery</h6>
+                                <p class="mb-0 text-secondary">Quick shipping for urgent household needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ratio ratio-16x9 rounded-4 shadow-sm overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80" class="img-fluid" alt="About ChemPlus">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-title mb-2">Testimonials</p>
+                <h2 class="display-6">What customers say</h2>
+                <p class="text-secondary">Real reviews from customers who love our products.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <p class="mb-4">“The laundry detergent makes my clothes feel softer and smell amazing. I’m very happy with the results.”</p>
+                        <h6 class="mb-1">Sofia L.</h6>
+                        <small class="text-secondary">Verified buyer</small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <p class="mb-4">“Quick delivery and excellent packaging. The cleaning bleach works great on kitchen stains.”</p>
+                        <h6 class="mb-1">Marcus T.</h6>
+                        <small class="text-secondary">Verified buyer</small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <p class="mb-4">“I love the premium feel of the products. The fabric softener is gentle and lasts longer than other brands.”</p>
+                        <h6 class="mb-1">Neha R.</h6>
+                        <small class="text-secondary">Verified buyer</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6">
+                    <p class="section-title mb-2">Get in touch</p>
+                    <h2 class="display-5 mb-4">Have a question? We’re here to help.</h2>
+                    <p class="text-secondary mb-4">Need wholesale pricing or product sourcing support? Contact our team and we’ll help you stock the right cleaning and laundry supplies.</p>
+                    <div class="d-flex flex-column gap-3 text-secondary">
+                        <div><i class="bi bi-telephone-fill text-primary me-2"></i> +1 555 123 4567</div>
+                        <div><i class="bi bi-envelope-fill text-primary me-2"></i> support@chemplus.com</div>
+                        <div><i class="bi bi-geo-alt-fill text-primary me-2"></i> 123 Clean St, Homecity</div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card rounded-4 border-0 shadow-sm p-4">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" class="form-control form-control-lg" placeholder="Your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-control form-control-lg" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" class="form-control form-control-lg" rows="5" placeholder="How can we help?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+                        </form>
+                        <div id="contactFeedback" class="alert alert-success mt-3 d-none" role="alert">
+                            Thanks! Your message has been sent.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google AdSense Placeholder -->
+    <div class="container text-center my-4">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3994963155410287"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row align-items-center gy-3">
+                <div class="col-md-6">
+                    <h5 class="mb-1">ChemPlus</h5>
+                    <p class="mb-0 text-secondary">Premium household cleaning products made for every home.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#home" class="text-light text-decoration-none me-3 footer-link">Home</a>
+                    <a href="#products" class="text-light text-decoration-none me-3 footer-link">Products</a>
+                    <a href="#contact" class="text-light text-decoration-none footer-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('#productGrid > div');
+            const searchInput = document.getElementById('searchInput');
+            const contactForm = document.getElementById('contactForm');
+            const contactFeedback = document.getElementById('contactFeedback');
+            const viewDetailButtons = document.querySelectorAll('.view-details-btn');
+            const modalTitle = document.getElementById('productModalLabel');
+            const modalCategory = document.getElementById('productModalCategory');
+            const modalImage = document.getElementById('productModalImage');
+            const modalDescription = document.getElementById('productModalDescription');
+            const modalPrice = document.getElementById('productModalPrice');
+            const modalStock = document.getElementById('productModalStock');
+            const modalRating = document.getElementById('productModalRating');
+
+            function setActiveFilter(category) {
+                filterButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.category === category);
+                });
+            }
+
+            function filterProducts(category, query = '') {
+                const search = query.trim().toLowerCase();
+                productCards.forEach(card => {
+                    const categoryMatch = category === 'All' || card.dataset.category === category;
+                    const nameMatch = card.dataset.name.toLowerCase().includes(search);
+                    const tagMatch = card.dataset.tags.toLowerCase().includes(search);
+                    card.style.display = categoryMatch && (!search || nameMatch || tagMatch) ? '' : 'none';
+                });
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.dataset.category;
+                    setActiveFilter(category);
+                    filterProducts(category, searchInput.value);
+                });
+            });
+
+            searchInput.addEventListener('input', () => {
+                const activeCategory = document.querySelector('.filter-btn.active')?.dataset.category || 'All';
+                filterProducts(activeCategory, searchInput.value);
+            });
+
+            viewDetailButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const card = this.closest('[data-name]');
+                    modalTitle.textContent = card.dataset.name;
+                    modalCategory.textContent = card.dataset.category;
+                    modalImage.src = card.dataset.image;
+                    modalImage.alt = card.dataset.name;
+                    modalDescription.textContent = card.dataset.description;
+                    modalPrice.textContent = card.dataset.price;
+                    modalStock.textContent = card.dataset.stock;
+                    modalRating.textContent = card.dataset.rating + ' stars';
+                });
+            });
+
+            contactForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                contactForm.reset();
+                contactFeedback.classList.remove('d-none');
+                setTimeout(() => contactFeedback.classList.add('d-none'), 4000);
+            });
+        });
+    </script>
+</body>
+</html>
