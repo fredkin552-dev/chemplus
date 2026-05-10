@@ -1,0 +1,51 @@
+@model List<Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1>Our Products</h1>
+            @if (ViewData["Category"] != null)
+            {
+                <p class="text-muted">Category: <strong>@ViewData["Category"]</strong></p>
+            }
+        </div>
+    </div>
+
+    @{
+        var activeCategory = (ViewData["Category"] as string) ?? "All Products";
+    }
+
+    <div class="mb-4">
+        <a href="@Url.Action("Index", "Products")" class="btn @(activeCategory == "All Products" ? "btn-primary" : "btn-outline-primary") me-2 mb-2">All Products</a>
+        <a href="@Url.Action("ByCategory", "Products", new { category = "Detergent" })" class="btn @(activeCategory == "Detergent" ? "btn-primary" : "btn-outline-secondary") me-2 mb-2">Detergent</a>
+        <a href="@Url.Action("ByCategory", "Products", new { category = "Cleaning" })" class="btn @(activeCategory == "Cleaning" ? "btn-primary" : "btn-outline-secondary") me-2 mb-2">Cleaning</a>
+        <a href="@Url.Action("ByCategory", "Products", new { category = "Laundry" })" class="btn @(activeCategory == "Laundry" ? "btn-primary" : "btn-outline-secondary") me-2 mb-2">Laundry</a>
+    </div>
+
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text text-muted">@product.Category</p>
+                        <p class="card-text">@product.Description.Substring(0, Math.Min(100, product.Description.Length))...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h5 mb-0 text-success">@product.Price.ToString("C")</span>
+                            <span class="badge bg-info">Stock: @product.Stock</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="@Url.Action("Details", "Products", new { id = product.Id })" class="btn btn-primary w-100">View Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

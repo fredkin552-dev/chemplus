@@ -1,0 +1,26 @@
+# Build output
+bin/
+obj/
+publish/
+
+# Visual Studio / Rider / tooling
+.vs/
+*.user
+*.suo
+
+# Static web assets build caches (often generated)
+staticwebassets/
+
+# Zips / packaged exports
+*.zip
+
+# OS
+.DS_Store
+
+# Upload/export bundles
+ChemPlusStatic/
+chemplus-site/
+chemplus-static-site/
+
+# Optional: if you want to keep railway.json out of git when generated
+railway.json
