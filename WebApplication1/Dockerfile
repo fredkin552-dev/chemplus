@@ -7,10 +7,14 @@ EXPOSE 443
 # Use the official .NET 10.0 SDK image to build the app
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
-COPY ["WebApplication1.csproj", "."]
-RUN dotnet restore "./WebApplication1.csproj"
+
+# Copy only the csproj first for better layer caching
+COPY ["WebApplication1/WebApplication1.csproj", "WebApplication1/"]
+RUN dotnet restore "WebApplication1/WebApplication1.csproj"
+
+# Copy everything else
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/WebApplication1"
 RUN dotnet build "WebApplication1.csproj" -c Release -o /app/build
 
 FROM build AS publish
